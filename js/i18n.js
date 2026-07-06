@@ -286,21 +286,6 @@ function t(key) {
   return val ?? key;
 }
 
-/* Stamp ?lang=XX onto every internal nav link so clicking carries the choice */
-function updateNavLinks(lang) {
-  document.querySelectorAll('a[href]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('//')) return;
-    const [pathPart, anchor] = href.split('#');
-    if (!pathPart) return;
-    const [path, existingQuery] = pathPart.split('?');
-    if (!path) return;
-    const params = new URLSearchParams(existingQuery || '');
-    params.set('lang', lang);
-    a.setAttribute('href', `${path}?${params.toString()}${anchor != null ? '#' + anchor : ''}`);
-  });
-}
-
 function applyTranslations(forceLang) {
   const lang = forceLang !== undefined ? forceLang : getLang();
 
@@ -335,9 +320,6 @@ function applyTranslations(forceLang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
-
-  /* update all internal links to carry the current language */
-  updateNavLinks(lang);
 }
 
 function populateSelect(id, options, placeholder) {
@@ -362,16 +344,21 @@ function setLang(lang) {
   currentLang = lang;
   try { localStorage.setItem('sd-lang', lang); } catch(e) {}
 
-  /* Keep the current URL's ?lang in sync so getLang() and a manual
-     reload agree with the button. Best-effort: file:// can reject
-     replaceState, but the toggle still works because currentLang drives t(). */
-  try {
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', lang);
-    history.replaceState(null, '', url.toString());
-  } catch(e) {}
-
   applyTranslations(lang);
 }
 
 applyTranslations();
+
+/* Tidy the address bar: the language lives in localStorage, so once a
+   ?lang= param has been read it can be dropped. Also hide the trailing
+   index.html. Best-effort: skipped on file:// where replaceState can throw. */
+try {
+  if (window.location.protocol !== 'file:') {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('lang');
+    if (url.pathname.endsWith('/index.html')) {
+      url.pathname = url.pathname.slice(0, -'index.html'.length);
+    }
+    history.replaceState(null, '', url.toString());
+  }
+} catch(e) {}
