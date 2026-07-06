@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontaktoni Star Digital | Merrni Ofertë Falas</title>
+  <meta name="description" content="Gati të filloni projektin? Kontaktoni Star Digital për një ofertë falas. Përgjigjemi brenda 24 orësh." />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="contact" data-page-title="meta.contactTitle">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="logo.png" alt="Star Digital" width="294" height="84" />
+      </a>
+      <div class="navbar__links">
+        <a href="index.html"    class="navbar__link" data-nav="home"    data-i18n="nav.home"></a>
+        <a href="about.html"    class="navbar__link" data-nav="about"   data-i18n="nav.about"></a>
+        <a href="services.html" class="navbar__link" data-nav="services" data-i18n="nav.services"></a>
+        <a href="contact.html"  class="navbar__link" data-nav="contact" data-i18n="nav.contact"></a>
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="sq">SQ</button>
+          <span class="lang-sep">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="contact.html" class="btn btn-primary" data-i18n="nav.cta"></a>
+      </div>
+      <button class="hamburger" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <button class="mobile-menu__close" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <a href="index.html"    class="mobile-menu__link" data-nav="home"    data-i18n="nav.home"></a>
+    <a href="about.html"    class="mobile-menu__link" data-nav="about"   data-i18n="nav.about"></a>
+    <a href="services.html" class="mobile-menu__link" data-nav="services" data-i18n="nav.services"></a>
+    <a href="contact.html"  class="mobile-menu__link" data-nav="contact" data-i18n="nav.contact"></a>
+    <div class="mobile-menu__lang">
+      <button class="lang-btn" data-lang="sq">SQ</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="contact.html" class="btn btn-primary-lg" data-i18n="nav.cta"></a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="reveal">
+        <h1 class="page-hero__title" data-i18n="contact.headline"></h1>
+        <p class="page-hero__sub" data-i18n="contact.subheadline"></p>
+      </div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- FORM COLUMN -->
+          <div class="reveal">
+
+            <!-- Success state (hidden by default) -->
+            <div class="form-success" id="form-success">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+              <p></p>
+            </div>
+
+            <!-- Error banner (hidden by default) -->
+            <div class="form-error" id="form-error">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span data-i18n="contact.errorMsg"></span>
+            </div>
+
+            <form id="contact-form">
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="field-name" data-i18n="contact.nameLabel"></label>
+                  <input id="field-name" type="text" class="form-input" required data-i18n-ph="contact.namePlaceholder" />
+                </div>
+                <div>
+                  <label class="form-label" for="field-email" data-i18n="contact.emailLabel"></label>
+                  <input id="field-email" type="email" class="form-input" required data-i18n-ph="contact.emailPlaceholder" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="field-phone" data-i18n="contact.phoneLabel"></label>
+                  <input id="field-phone" type="tel" class="form-input" data-i18n-ph="contact.phonePlaceholder" />
+                </div>
+                <div>
+                  <label class="form-label" for="field-business" data-i18n="contact.businessLabel"></label>
+                  <input id="field-business" type="text" class="form-input" data-i18n-ph="contact.businessPlaceholder" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="form-label" for="select-project-type" data-i18n="contact.projectTypeLabel"></label>
+                  <select id="select-project-type" class="form-select"></select>
+                </div>
+                <div>
+                  <label class="form-label" for="select-budget" data-i18n="contact.budgetLabel"></label>
+                  <select id="select-budget" class="form-select"></select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="field-message" data-i18n="contact.messageLabel"></label>
+                <textarea id="field-message" class="form-textarea" rows="5" required data-i18n-ph="contact.messagePlaceholder"></textarea>
+              </div>
+              <button type="submit" class="btn-submit" id="submit-btn">
+                <span class="spinner" id="submit-spinner" style="display:none"></span>
+                <span id="submit-text" data-i18n="contact.submitButton"></span>
+              </button>
+            </form>
+          </div>
+
+          <!-- INFO COLUMN -->
+          <div class="reveal contact-info" data-delay="0.15">
+
+            <!-- Response time -->
+            <div class="contact-response">
+              <div class="contact-response__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              </div>
+              <p data-i18n="contact.responseNote"></p>
+            </div>
+
+            <p style="color:var(--muted);font-size:0.6875rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase" data-i18n="contact.orContact"></p>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/355682128669" target="_blank" rel="noopener noreferrer" class="contact-action contact-action--gold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span data-i18n="contact.whatsappLabel"></span>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:contact@stardigital.app" class="contact-action contact-action--card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span data-i18n="contact.emailLink"></span>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/stardigital.app" target="_blank" rel="noopener noreferrer" class="contact-action contact-action--card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>@stardigital.app</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="logo.png" alt="Star Digital" class="footer__logo" />
+          <p class="footer__desc" data-i18n="footer.description"></p>
+        </div>
+        <div>
+          <h3 class="footer__col-title" data-i18n="footer.quickLinks"></h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    data-i18n="nav.home"></a></li>
+            <li><a href="about.html"    data-i18n="nav.about"></a></li>
+            <li><a href="services.html" data-i18n="nav.services"></a></li>
+            <li><a href="contact.html"  data-i18n="nav.contact"></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title" data-i18n="footer.followUs"></h3>
+          <a href="https://instagram.com/stardigital.app" target="_blank" rel="noopener noreferrer" class="footer__ig-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @stardigital.app
+          </a>
+          <a href="mailto:contact@stardigital.app" class="footer__ig-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contact@stardigital.app
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span data-i18n="footer.copyright"></span>
+        <span data-i18n="footer.tagline"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/355682128669" target="_blank" rel="noopener noreferrer" class="wa-btn" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="wa-tooltip" data-i18n="whatsapp.tooltip"></span>
+  </a>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
