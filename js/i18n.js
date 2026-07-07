@@ -107,7 +107,7 @@ const TRANSLATIONS = {
       whatsappLabel: 'Bisedë në WhatsApp',
       emailLink: 'Dërgo Email',
       instagramLink: 'Instagram',
-      projectTypes: ['Website', 'Landing Page', 'E-commerce', 'Web App', 'Other'],
+      projectTypes: ['Dizajn & Zhvillim Faqesh', 'Landing Pages', 'Dyqane Online', 'Rikonstruktim Faqeje', 'Mirëmbajtje Faqeje'],
       budgetRanges: ['Nën €500', '€500–€1,500', '€1,500–€5,000', '€5,000+', 'Nuk e di'],
       selectProject: 'Zgjidhni llojin e projektit',
       selectBudget: 'Zgjidhni buxhetin'
@@ -236,7 +236,7 @@ const TRANSLATIONS = {
       whatsappLabel: 'Chat on WhatsApp',
       emailLink: 'Send an Email',
       instagramLink: 'Instagram',
-      projectTypes: ['Website', 'Landing Page', 'E-commerce', 'Web App', 'Other'],
+      projectTypes: ['Web Design & Development', 'Landing Pages', 'Ecom Store', 'Website Redesign', 'Website Maintenance'],
       budgetRanges: ['Under €500', '€500–€1,500', '€1,500–€5,000', '€5,000+', 'Not sure'],
       selectProject: 'Select project type',
       selectBudget: 'Select budget range'
