@@ -5,7 +5,6 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqgnwav';
 
 initNavbar();
 initMobileMenu();
-initLangSwitcher();
 initScrollReveal();
 initParticles();
 initContactForm();
@@ -29,24 +28,19 @@ function initMobileMenu() {
 
   hamburger.addEventListener('click', () => {
     menu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   });
 
   const close = () => {
     menu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
   closeBtn?.addEventListener('click', close);
   menu.querySelectorAll('.mobile-menu__link').forEach(link => {
     link.addEventListener('click', close);
-  });
-}
-
-/* ── Language switcher ── */
-function initLangSwitcher() {
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
 }
 

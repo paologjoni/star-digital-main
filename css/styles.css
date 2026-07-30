@@ -190,6 +190,28 @@ button { font-family: inherit; }
 .lang-btn.active { color: var(--gold); font-weight: 700; }
 .lang-sep { color: var(--border); pointer-events: none; }
 
+/* The switcher is now a pair of real links to the SQ/EN counterpart URL,
+   so each language is its own crawlable page. Strip the anchor underline
+   that the button element never had. */
+a.lang-btn { text-decoration: none; display: inline-block; }
+
+/* ===== SKIP LINK ===== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--gold);
+  color: #0f0720;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
 /* Hamburger */
 .hamburger {
   display: none;

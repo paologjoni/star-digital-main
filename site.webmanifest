@@ -1,0 +1,21 @@
+{
+  "name": "Star Digital",
+  "short_name": "Star Digital",
+  "description": "Krijojmë faqe interneti moderne, të shpejta dhe responsive për bizneset shqiptare. Web design, e-commerce dhe SEO. Ofertë falas brenda 24 orësh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0720",
+  "theme_color": "#0f0720",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
