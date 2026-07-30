@@ -907,3 +907,115 @@ a.lang-btn { text-decoration: none; display: inline-block; }
   .hero__ctas { flex-direction: column; align-items: stretch; }
   .footer__bottom { flex-direction: column; text-align: center; }
 }
+
+/* ===== LONG-FORM PROSE =====
+   Additive only. .container is 1280px wide with no measure constraint, which is
+   fine for card grids but far too wide for running text. These classes are used
+   exclusively by content sections added for SEO — no pre-existing element carries
+   them, so nothing above can change appearance. */
+.prose {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+.prose--wide { max-width: 62rem; }
+.prose p {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.prose h2:not(:first-child),
+.prose h3:not(:first-child) { margin-top: 2.5rem; }
+.prose a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s;
+}
+.prose a:hover { color: var(--gold-hover); }
+.prose ul {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin: 0 0 1.25rem 1.25rem;
+}
+.prose li { margin-bottom: 0.5rem; }
+
+/* ===== FAQ ===== */
+.faq-list {
+  max-width: 48rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+}
+.faq-item h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.faq-item p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* ===== SERVICE DETAIL BLOCKS ===== */
+.service-detail {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.service-detail:last-child { border-bottom: none; padding-bottom: 0; }
+.service-detail h2 {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.service-detail p {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.service-detail a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.service-detail a:hover { color: var(--gold-hover); }
+
+/* Portfolio images are wrapped in <picture> for WebP delivery. The <picture>
+   becomes the flex item that <img> used to be, so it must fill the header box
+   exactly as the bare <img> did — otherwise the inner height:100% resolves
+   against the wrong element. */
+.portfolio-card__header picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .faq-item { padding: 1.25rem; }
+}
