@@ -18,23 +18,27 @@ function mulberry32(seed: number) {
 
 export default function CssStars({
   count = 60,
+  seed = 20260805,
+  scale = 1,
   className = '',
 }: {
   count?: number;
+  seed?: number;
+  scale?: number;
   className?: string;
 }) {
   const stars = useMemo(() => {
-    const random = mulberry32(20260805);
+    const random = mulberry32(seed);
 
     return Array.from({ length: count }, () => ({
       top: `${(random() * 100).toFixed(1)}%`,
       left: `${(random() * 100).toFixed(1)}%`,
-      size: `${(random() * 2 + 1).toFixed(1)}px`,
+      size: `${((random() * 2 + 1) * scale).toFixed(1)}px`,
       opacity: Number((random() * 0.5 + 0.1).toFixed(2)),
       duration: `${(random() * 3 + 2).toFixed(1)}s`,
       delay: `${(random() * 4).toFixed(1)}s`,
     }));
-  }, [count]);
+  }, [count, seed, scale]);
 
   return (
     <div aria-hidden="true" className={`pointer-events-none ${className}`}>

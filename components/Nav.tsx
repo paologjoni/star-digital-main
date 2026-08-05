@@ -102,8 +102,8 @@ export default function Nav({ lang }: { lang: Lang }) {
             <img
               src="/logo.png"
               alt="Star Digital"
-              width={294}
-              height={84}
+              width={800}
+              height={800}
               className={`w-auto transition-all duration-500 ${scrolled ? 'h-8' : 'h-10'}`}
             />
           </Link>

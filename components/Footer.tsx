@@ -24,8 +24,8 @@ export default function Footer({ lang }: { lang: Lang }) {
             <img
               src="/logo.png"
               alt="Star Digital"
-              width={245}
-              height={70}
+              width={800}
+              height={800}
               loading="lazy"
               decoding="async"
               className="h-9 w-auto"

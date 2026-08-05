@@ -10,11 +10,14 @@ export default function LaptopCanvas({ progress }: { progress: MotionValue<numbe
   return (
     <Canvas
       dpr={[1, 1.75]}
-      camera={{ position: [0, 0.7, 6.4], fov: 42 }}
+      camera={{ position: [0, 0.35, 5.6], fov: 42 }}
       gl={{ antialias: true, powerPreference: 'high-performance', alpha: true }}
       style={{ pointerEvents: 'none' }}
     >
-      <ambientLight intensity={0.45} />
+      <ambientLight intensity={0.6} />
+      {/* Fill from below-front so the deck reads as metal rather than a
+          silhouette against the dark background. */}
+      <pointLight position={[0, -2, 4]} intensity={12} color="#7b5cc4" distance={12} />
       <directionalLight position={[4, 6, 5]} intensity={1.1} color="#e8ddff" />
       {/* The gold rim that ties the object to the brand. */}
       <directionalLight position={[-5, 2, -3]} intensity={2.2} color="#f5c518" />

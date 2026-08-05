@@ -94,27 +94,41 @@ export default function Laptop({ progress }: { progress: MotionValue<number> }) 
        plane peaks when the continuous slot index passes its own index. */
     const wake = smoothstep(0.14, 0.34, p);
     const fadeOut = 1 - smoothstep(0.86, 1, p);
-    const slot = THREE.MathUtils.clamp(ramp(p, [
-      [0.3, 0],
-      [0.52, 1],
-      [0.76, 2],
-    ]), 0, 2);
+    /* Plateaus, not a constant ramp: the slot index dwells on each project
+       while the laptop turns, then switches over a short window. A linear
+       slide spent most of its time between two screenshots. */
+    const slot = THREE.MathUtils.clamp(
+      ramp(p, [
+        [0.3, 0],
+        [0.46, 0],
+        [0.53, 1],
+        [0.68, 1],
+        [0.75, 2],
+        [1.0, 2],
+      ]),
+      0,
+      2,
+    );
 
+    /* Steeper than a linear crossfade so the two screenshots are never both
+       half-visible: the screen dims through dark between projects, the way a
+       display looks when it switches source. A straight A/B blend read as a
+       double exposure. */
     screens.current.forEach((mesh, i) => {
       if (!mesh) return;
-      const weight = THREE.MathUtils.clamp(1 - Math.abs(slot - i), 0, 1);
+      const weight = THREE.MathUtils.clamp(1 - Math.abs(slot - i) * 2.4, 0, 1);
       const material = mesh.material as THREE.MeshBasicMaterial;
       material.opacity = weight * wake * fadeOut;
     });
 
     if (glow.current) {
-      glow.current.intensity = wake * fadeOut * 2.6;
+      glow.current.intensity = wake * fadeOut * 5;
     }
   });
 
   return (
     <Float speed={1.1} rotationIntensity={0.12} floatIntensity={0.35}>
-      <group ref={root} position={[0, -0.25, 0]} scale={1.05}>
+      <group ref={root} position={[0, -0.75, 0]} scale={1.08}>
         {/* Deck */}
         <RoundedBox args={[3.3, 0.13, 2.25]} radius={0.055} smoothness={4}>
           <meshStandardMaterial color="#241546" metalness={0.85} roughness={0.32} />
@@ -161,13 +175,15 @@ export default function Laptop({ progress }: { progress: MotionValue<number> }) 
             </mesh>
           ))}
 
-          {/* The screen's own spill light, brightening as it wakes. */}
+          {/* The screen's spill light. Kept well clear of the lid — close in,
+              it blooms a visible hotspot on the very panel it is meant to be
+              cast by. */}
           <pointLight
             ref={glow}
-            position={[0, 1.07, 0.9]}
+            position={[0, 0.4, 2.8]}
             color="#c9b6ff"
             intensity={0}
-            distance={6}
+            distance={9}
           />
         </group>
       </group>

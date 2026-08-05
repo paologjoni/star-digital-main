@@ -56,7 +56,10 @@ export default function SkillOrbit({
     const render = () => {
       const box = container.current;
       if (box) {
-        const radius = Math.min(box.clientWidth, box.clientHeight) * 0.38;
+        /* Use the box's width and height independently — a single min() made
+           the sphere collapse to the shorter axis and cluster in the middle
+           of a much wider container. */
+        const radius = Math.min(box.clientWidth * 0.44, box.clientHeight * 0.46);
 
         if (!state.active) state.ry += state.vx;
         state.rx = Math.max(-0.55, Math.min(0.55, state.rx));
