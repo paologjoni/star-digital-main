@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useCapability } from '@/lib/useCapability';
 
-/* The ten skill chips arranged on a slowly turning sphere.
+/* The skill chips arranged on a slowly turning sphere.
 
    Deliberately not WebGL. Each chip stays a real DOM element with real text,
    so it is selectable, translatable, crawlable and readable by a screen
@@ -134,6 +134,11 @@ export default function SkillOrbit({
   const chipClass =
     'rounded-full border border-line bg-surface/60 px-5 py-2.5 text-sm font-semibold text-ink backdrop-blur-sm transition-colors hover:border-gold/50 hover:text-gold';
 
+  /* Tighter chips on the sphere than in the wrapped list: two dozen of them
+     at list size collide badly once the near face is scaled up. */
+  const orbitChipClass =
+    'rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-xs font-semibold text-ink backdrop-blur-sm';
+
   if (!orbiting) {
     return (
       <ul aria-label={label} className="mt-12 flex flex-wrap justify-center gap-3">
@@ -149,7 +154,7 @@ export default function SkillOrbit({
   return (
     <div
       ref={container}
-      className="relative mx-auto mt-10 h-[24rem] w-full max-w-2xl cursor-grab touch-pan-y select-none active:cursor-grabbing sm:h-[28rem]"
+      className="relative mx-auto mt-10 h-[28rem] w-full max-w-3xl cursor-grab touch-pan-y select-none active:cursor-grabbing sm:h-[34rem]"
     >
       <div
         aria-hidden="true"
@@ -162,7 +167,7 @@ export default function SkillOrbit({
             ref={(node) => {
               chips.current[i] = node;
             }}
-            className={`absolute top-1/2 left-1/2 whitespace-nowrap will-change-transform ${chipClass}`}
+            className={`absolute top-1/2 left-1/2 whitespace-nowrap will-change-transform ${orbitChipClass}`}
           >
             {skill}
           </li>

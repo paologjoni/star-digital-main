@@ -29,18 +29,38 @@ export const ORG = {
   dateModified: '2026-07-30',
 } as const;
 
-/* Ten skill chips on /about. Not translated in the original site. */
+/* Skill chips on /about, grouped loosely front-end → back-end → tooling →
+   quality so the wrapped fallback list reads in a sensible order.
+
+   Deliberately all proper nouns. Names like "Responsive Design" would have to
+   be translated, which means moving this list into both dictionaries and
+   keeping them in step; product names are identical in Albanian and English,
+   so the list stays here and cannot drift. */
 export const SKILLS = [
   'HTML',
   'CSS',
   'JavaScript',
+  'TypeScript',
   'React',
   'Next.js',
+  'Tailwind CSS',
+  'Framer Motion',
+  'Three.js',
+  'WebGL',
+  'Node.js',
   'Python',
   'SQL',
-  'C',
+  'PostgreSQL',
+  'REST APIs',
   'Java',
+  'C',
   'Git',
+  'Vite',
+  'Vercel',
+  'Figma',
+  'Schema.org',
+  'Core Web Vitals',
+  'WCAG',
 ] as const;
 
 export interface PortfolioMeta {

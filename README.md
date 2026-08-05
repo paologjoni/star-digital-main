@@ -51,6 +51,11 @@ node scripts/seo-check.mjs     #          titles, canonicals, hreflang, JSON-LD
 went missing is a bug, and so is text that appeared, because the rebuild was
 supposed to change the presentation and nothing else.
 
+Copy deliberately added since then is listed in `INTENTIONAL_ADDITIONS` at the
+top of that script (currently the fourteen skills added to `/about`). Add to
+that list when you add copy on purpose, so the gate keeps failing on
+everything you did not.
+
 `seo-check.mjs` allows exactly one intended difference: the homepage
 `ItemList` used to advertise "Tirana Eats", pointing at a screenshot that does
 not exist, while the page rendered AFA Engineering Klima. The structured data

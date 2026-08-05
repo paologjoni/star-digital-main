@@ -61,6 +61,27 @@ const RUNTIME_ONLY = new Set(
   ].map((s) => s.toLowerCase()),
 );
 
+/* Copy added after the rebuild, at the owner's request — not a regression.
+   Listed explicitly so the gate keeps failing on anything unintended. */
+const INTENTIONAL_ADDITIONS = new Set(
+  [
+    'TypeScript',
+    'Tailwind CSS',
+    'Framer Motion',
+    'Three.js',
+    'WebGL',
+    'Node.js',
+    'PostgreSQL',
+    'REST APIs',
+    'Vite',
+    'Vercel',
+    'Figma',
+    'Schema.org',
+    'Core Web Vitals',
+    'WCAG',
+  ].map((s) => s.toLowerCase()),
+);
+
 const ENTITIES = {
   amp: '&',
   lt: '<',
@@ -128,7 +149,10 @@ function diff(before, after) {
   const missing = [...before.chunks].filter((chunk) => !after.stream.includes(chunk));
 
   const added = [...after.chunks].filter(
-    (chunk) => !RUNTIME_ONLY.has(chunk) && !before.stream.includes(chunk),
+    (chunk) =>
+      !RUNTIME_ONLY.has(chunk) &&
+      !INTENTIONAL_ADDITIONS.has(chunk) &&
+      !before.stream.includes(chunk),
   );
 
   return { missing, added };
