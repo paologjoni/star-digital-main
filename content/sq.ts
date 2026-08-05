@@ -79,6 +79,7 @@ export const sq: Dictionary = {
       },
     },
     viewProject: 'Shiko Projektin',
+    sceneScrollHint: 'Vazhdo poshtë',
 
     bannerTitle: 'Gati të Çoni Biznesin Tuaj Online?',
     bannerSub: 'Le të flasim. Pa detyrime. Thjesht një bisedë për çfarë keni nevojë.',

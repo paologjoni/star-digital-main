@@ -79,6 +79,7 @@ export const en: Dictionary = {
       },
     },
     viewProject: 'View Project',
+    sceneScrollHint: 'Keep scrolling',
 
     bannerTitle: 'Ready to Take Your Business Online?',
     bannerSub: "Let's talk. No commitment. Just a conversation about what you need.",

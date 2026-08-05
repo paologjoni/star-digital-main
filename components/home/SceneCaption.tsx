@@ -90,10 +90,13 @@ export default function SceneCaption({
 
       {/* Narrower, but still wide enough for the scene: the same caption
           collected under the machine, since there is no room beside it.
-          Without this the text simply disappeared between 768 and 1024. */}
+          Without this the text simply disappeared between 768 and 1024.
+
+          Raised to clear the scroll cue, which now holds the very bottom of
+          the stage for the whole scene rather than only its opening. */}
       <motion.div
         style={{ opacity }}
-        className="pointer-events-none absolute inset-x-0 bottom-16 flex flex-col items-center gap-3 px-6 text-center lg:hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-28 flex flex-col items-center gap-3 px-6 text-center lg:hidden"
       >
         <div className="flex items-center gap-3">
           {counter}

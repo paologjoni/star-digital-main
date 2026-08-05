@@ -68,6 +68,8 @@ export interface HomeContent {
   portfolioTitle: string;
   portfolio: Record<PortfolioKey, PortfolioCopy>;
   viewProject: string;
+  /** Cue shown over the laptop scene while the lid is still shut. */
+  sceneScrollHint: string;
   bannerTitle: string;
   bannerSub: string;
   bannerCta: string;

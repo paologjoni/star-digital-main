@@ -66,8 +66,11 @@ export const SKILLS = [
 export interface PortfolioMeta {
   key: PortfolioKey;
   url: string;
-  /** Rendered <img> source and the texture the 3D laptop streams. */
+  /** Rendered <img> source in the portfolio grid. 1536x960. */
   image: string;
+  /** The texture the 3D laptop streams. Same frame, 2048x1280 — the panel is
+      16:10, so it is sampled whole rather than cropped to fit. */
+  screenImage: string;
   /** Legacy .png/.jpg used by structured data, kept byte-identical. */
   schemaImage: string;
   width: number;
@@ -81,9 +84,10 @@ export const PORTFOLIO: PortfolioMeta[] = [
     key: 'studio',
     url: 'https://orthopedic-studio.vercel.app',
     image: '/assets/portfolio/studio.webp',
+    screenImage: '/assets/portfolio/studio-screen.webp',
     schemaImage: `${SITE_URL}/assets/portfolio/studio.png`,
     width: 1536,
-    height: 729,
+    height: 960,
     accent: '#4da3ff',
     tags: ['HTML', 'CSS', 'JavaScript'],
   },
@@ -91,19 +95,21 @@ export const PORTFOLIO: PortfolioMeta[] = [
     key: 'candles',
     url: 'https://candlesauroma.com',
     image: '/assets/portfolio/candles-auroma.webp',
+    screenImage: '/assets/portfolio/candles-auroma-screen.webp',
     schemaImage: `${SITE_URL}/assets/portfolio/candles-auroma.png`,
     width: 1536,
-    height: 731,
+    height: 960,
     accent: '#c9a84c',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
     key: 'afa',
     url: 'https://afaengineeringklima.com',
-    image: '/assets/portfolio/afa-engineering-klima.jpg',
+    image: '/assets/portfolio/afa-engineering-klima.webp',
+    screenImage: '/assets/portfolio/afa-engineering-klima-screen.webp',
     schemaImage: `${SITE_URL}/assets/portfolio/afa-engineering-klima.jpg`,
     width: 1536,
-    height: 729,
+    height: 960,
     accent: '#7aa919',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
   },

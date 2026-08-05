@@ -90,8 +90,11 @@ export default async function AboutPage({ params }: Params) {
             <ul className="mt-12 grid gap-4 sm:grid-cols-2">
               {t.reasons.map((reason, i) => (
                 <Reveal as="li" key={reason} delay={i * 0.1}>
-                  <div className="rim group relative flex h-full items-start gap-4 overflow-hidden rounded-2xl border border-line/70 bg-surface/40 p-6 transition-transform duration-500 hover:-translate-y-1">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/12 text-gold">
+                  {/* items-center, not items-start: the grid stretches every
+                      card in a row to the tallest one, and top-aligned content
+                      left the shorter card's text floating above its own box. */}
+                  <div className="rim group relative flex h-full items-center gap-4 overflow-hidden rounded-2xl border border-line/70 bg-surface/40 p-6 transition-transform duration-500 hover:-translate-y-1">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/12 text-gold">
                       <CheckIcon className="h-4 w-4" />
                     </span>
                     <p className="text-sm leading-relaxed text-muted">{reason}</p>

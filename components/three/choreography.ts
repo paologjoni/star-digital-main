@@ -77,6 +77,11 @@ export const activeIndex = (p: number) => clamp(Math.round(slot(p)), 0, 2);
 export const screenWeight = (p: number, index: number) =>
   clamp(1 - Math.abs(slot(p) - index) * 2.4, 0, 1) * wake(p) * fadeOut(p);
 
+/** Scroll cue opacity: held for the whole pinned scene, since the pin lasts
+    three viewports and the instruction is true for every one of them. It
+    leaves only with the object, on the same recede as everything else. */
+export const hintPresence = (p: number) => fadeOut(p);
+
 /** Caption opacity: present while settled on a project, gone mid-switch. */
 export function captionPresence(p: number): number {
   const distance = Math.abs(slot(p) - activeIndex(p));

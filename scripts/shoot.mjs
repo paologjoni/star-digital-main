@@ -20,8 +20,12 @@ const OUT = process.argv[2] ?? 'shots';
 
 await mkdir(OUT, { recursive: true });
 
+/* networkidle2 rather than networkidle0: the built site keeps a connection
+   open, so waiting for zero in-flight requests never returns and every
+   navigation here timed out. */
 const browser = await puppeteer.launch({
   headless: 'shell',
+  protocolTimeout: 240_000,
   args: [
     '--enable-unsafe-swiftshader',
     '--use-gl=angle',
@@ -48,7 +52,7 @@ async function shoot(page, name) {
   });
 
   console.log('desktop /');
-  await page.goto(`${BASE}/`, { waitUntil: 'networkidle0' });
+  await page.goto(`${BASE}/`, { waitUntil: 'networkidle2' });
   await shoot(page, '01-hero');
 
   const height = await page.evaluate(() => document.body.scrollHeight);
@@ -65,7 +69,7 @@ async function shoot(page, name) {
     ['09-services', '/services'],
     ['10-contact', '/contact'],
   ]) {
-    await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle0' });
+    await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle2' });
     await shoot(page, name);
   }
 
@@ -85,7 +89,7 @@ async function shoot(page, name) {
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true });
 
   console.log('mobile /');
-  await page.goto(`${BASE}/`, { waitUntil: 'networkidle0' });
+  await page.goto(`${BASE}/`, { waitUntil: 'networkidle2' });
   await shoot(page, '11-mobile-hero');
 
   const canvases = await page.evaluate(() => document.querySelectorAll('canvas').length);
@@ -103,7 +107,7 @@ async function shoot(page, name) {
   ]);
 
   console.log('reduced-motion /');
-  await page.goto(`${BASE}/`, { waitUntil: 'networkidle0' });
+  await page.goto(`${BASE}/`, { waitUntil: 'networkidle2' });
   await shoot(page, '12-reduced-motion');
 
   const canvases = await page.evaluate(() => document.querySelectorAll('canvas').length);

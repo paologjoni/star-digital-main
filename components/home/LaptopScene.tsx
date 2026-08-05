@@ -1,13 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { useScroll, useTransform, motion } from 'motion/react';
+import { AnimatePresence, useScroll, useTransform, motion } from 'motion/react';
 
 
 import { useCapability } from '@/lib/useCapability';
-import type { Lang } from '@/content';
+import { PORTFOLIO, type Lang } from '@/content';
 import SceneCaption from './SceneCaption';
+import SceneScrollHint from './SceneScrollHint';
 
 const LaptopCanvas = dynamic(() => import('@/components/three/LaptopCanvas'), {
   ssr: false,
@@ -27,8 +28,9 @@ const LaptopCanvas = dynamic(() => import('@/components/three/LaptopCanvas'), {
 
 export default function LaptopScene({ lang }: { lang: Lang }) {
   const stage = useRef<HTMLDivElement>(null);
-  const { allow3D } = useCapability();
+  const { allow3D, compact } = useCapability();
   const [near, setNear] = useState(false);
+  const [ready, setReady] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: stage,
@@ -43,11 +45,34 @@ export default function LaptopScene({ lang }: { lang: Lang }) {
      hero is 92vh, so this stage's top edge is already on screen at scroll
      zero and any intersection trigger fires immediately. A scroll threshold
      says what is actually meant — start loading once the visitor commits to
-     going down the page. */
+     going down the page.
+
+     One threshold was not enough. Mounting the canvas is also what *starts*
+     the download, so at 0.35vh the visitor was watching a blank stage for as
+     long as 300KB took to arrive. Fetching is now split off from mounting:
+     the first scroll of any distance warms the chunk and the screenshots into
+     the HTTP cache, in parallel and at low cost, and the mount at 0.35vh then
+     finds them already there. A visitor who never scrolls still pays nothing,
+     which was the point of the gate to begin with. */
   useEffect(() => {
     if (!allow3D || near) return;
 
+    let warmed = false;
+
+    const warm = () => {
+      if (warmed) return;
+      warmed = true;
+      void import('@/components/three/LaptopCanvas');
+      for (const project of PORTFOLIO) {
+        const image = new Image();
+        image.src = project.screenImage;
+      }
+    };
+
     const check = () => {
+      if (window.scrollY <= 0) return;
+      warm();
+
       if (window.scrollY > window.innerHeight * 0.35) {
         setNear(true);
         window.removeEventListener('scroll', check);
@@ -58,6 +83,8 @@ export default function LaptopScene({ lang }: { lang: Lang }) {
     window.addEventListener('scroll', check, { passive: true });
     return () => window.removeEventListener('scroll', check);
   }, [allow3D, near]);
+
+  const handleReady = useCallback(() => setReady(true), []);
 
   /* Fade the canvas at both ends so it never bleeds into the hero above or
      the section below. */
@@ -77,10 +104,39 @@ export default function LaptopScene({ lang }: { lang: Lang }) {
       {allow3D && (
         <div className="sticky top-0 h-screen overflow-hidden">
           <motion.div style={{ opacity }} className="absolute inset-0">
-            {near && <LaptopCanvas progress={scrollYProgress} />}
+            {near && (
+              <LaptopCanvas
+                progress={scrollYProgress}
+                compact={compact}
+                onReady={handleReady}
+              />
+            )}
           </motion.div>
 
-          <SceneCaption progress={scrollYProgress} lang={lang} />
+          {/* Something has to hold the stage while three.js and the textures
+              land, or the scene reads as three viewports of blank page. It is
+              deliberately not a percentage bar: the work being waited on is a
+              script chunk and three images with no shared progress to report,
+              and a bar that jumps 0 → 100 is worse than no bar. */}
+          <AnimatePresence>
+            {!ready && (
+              <motion.div
+                key="loading"
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.45 }}
+                className="pointer-events-none absolute inset-0 flex items-center justify-center"
+              >
+                <span className="h-9 w-9 rounded-full border-2 border-white/12 border-t-gold motion-safe:animate-[spin_0.9s_linear_infinite]" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {ready && (
+            <>
+              <SceneCaption progress={scrollYProgress} lang={lang} />
+              <SceneScrollHint progress={scrollYProgress} lang={lang} />
+            </>
+          )}
 
           {/* Grounds the object against the section below. */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-bg to-transparent" />
