@@ -29,7 +29,7 @@ export default async function HomePage({ params }: Params) {
 
         {/* Pinned WebGL scene. Decorative and desktop-only — the projects it
             cycles through are rendered as real markup in the grid below. */}
-        <LaptopScene />
+        <LaptopScene lang={lang} />
         {/* WHAT WE DO */}
         <section className="relative py-24 sm:py-32" aria-labelledby="wwd-h">
           <div className="container-x">

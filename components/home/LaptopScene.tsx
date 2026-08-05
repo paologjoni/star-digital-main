@@ -6,6 +6,8 @@ import { useScroll, useTransform, motion } from 'motion/react';
 
 
 import { useCapability } from '@/lib/useCapability';
+import type { Lang } from '@/content';
+import SceneCaption from './SceneCaption';
 
 const LaptopCanvas = dynamic(() => import('@/components/three/LaptopCanvas'), {
   ssr: false,
@@ -23,7 +25,7 @@ const LaptopCanvas = dynamic(() => import('@/components/three/LaptopCanvas'), {
    Decorative throughout: the same three projects appear as real markup in
    the portfolio grid further down the page. */
 
-export default function LaptopScene() {
+export default function LaptopScene({ lang }: { lang: Lang }) {
   const stage = useRef<HTMLDivElement>(null);
   const { allow3D } = useCapability();
   const [near, setNear] = useState(false);
@@ -77,6 +79,8 @@ export default function LaptopScene() {
           <motion.div style={{ opacity }} className="absolute inset-0">
             {near && <LaptopCanvas progress={scrollYProgress} />}
           </motion.div>
+
+          <SceneCaption progress={scrollYProgress} lang={lang} />
 
           {/* Grounds the object against the section below. */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-bg to-transparent" />
