@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://stardigital.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/sq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/de</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/contact" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/sq/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/contact" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/contact" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/work/orthopedic-studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/orthopedic-studio" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/sq/work/orthopedic-studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/orthopedic-studio" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/de/work/orthopedic-studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/orthopedic-studio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/orthopedic-studio" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/work/candles-auroma</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/candles-auroma" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/sq/work/candles-auroma</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/candles-auroma" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/de/work/candles-auroma</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/candles-auroma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/candles-auroma" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/work/afa-engineering-klima</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/afa-engineering-klima" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/sq/work/afa-engineering-klima</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/afa-engineering-klima" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://stardigital.app/de/work/afa-engineering-klima</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stardigital.app/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="sq" href="https://stardigital.app/sq/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://stardigital.app/de/work/afa-engineering-klima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stardigital.app/work/afa-engineering-klima" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

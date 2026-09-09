@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-n5LQ9ujS.js";import{t}from"./index-DT5bSt7b.js";import{t as n}from"./case-De2oT7wK.js";var r=e();function i(){let{project:e}=t.useLoaderData();return(0,r.jsx)(n,{lang:`de`,pathname:`/de/work/${e.slug}`,project:e})}export{i as component};
