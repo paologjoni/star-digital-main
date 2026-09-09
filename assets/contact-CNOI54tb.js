@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-n5LQ9ujS.js";import{t}from"./contact-page-CvDd9g7-.js";var n=e(),r=()=>(0,n.jsx)(t,{lang:`sq`,pathname:`/sq/contact`});export{r as component};
