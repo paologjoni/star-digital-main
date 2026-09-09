@@ -2,3 +2,7 @@ node_modules/
 .next/
 .vercel/
 .DS_Store
+
+# Leftovers from the Next.js site that used to live here
+next-env.d.ts
+*.tsbuildinfo
